@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Xonqa Don Mahsulotlari AJ</title>
+<link rel="shortcut icon" href="logo/XONQA.jpg" type="image/x-icon">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --wheat:#C8860A;
+  --wheat-light:#F5E6C0;
+  --wheat-dark:#8B5E0A;
+  --red:#B71C1C;
+  --green:#1B5E20;
+  --cream:#FDF8EE;
+  --dark:#1A1200;
+  --gray:#6B6B6B;
+  --white:#ffffff;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--dark);overflow-x:hidden;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(253,248,238,0.95);backdrop-filter:blur(10px);border-bottom:1px solid rgba(200,134,10,0.2);padding:0 2rem;}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:70px;}
+.logo-text{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--wheat-dark);font-weight:700;line-height:1.2;}
+.logo-text span{display:block;font-size:0.7rem;font-family:'Inter',sans-serif;font-weight:400;color:var(--gray);letter-spacing:2px;text-transform:uppercase;}
+.lang-switcher{display:flex;gap:6px;}
+.lang-btn{padding:5px 12px;border:1px solid var(--wheat);border-radius:20px;background:transparent;color:var(--wheat-dark);font-size:0.75rem;cursor:pointer;transition:all 0.2s;font-family:'Inter',sans-serif;}
+.lang-btn.active,.lang-btn:hover{background:var(--wheat);color:var(--white);}
+.nav-links{display:flex;gap:2rem;list-style:none;}
+.nav-links a{text-decoration:none;color:var(--dark);font-size:0.9rem;font-weight:500;transition:color 0.2s;}
+.nav-links a:hover{color:var(--wheat);}
+
+/* Hero Section */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;background:linear-gradient(135deg,#1A1200 0%,#3D2B00 50%,#1A1200 100%);}
+.hero-bg{position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,rgba(200,134,10,0.03) 0px,rgba(200,134,10,0.03) 1px,transparent 1px,transparent 60px),repeating-linear-gradient(-45deg,rgba(200,134,10,0.03) 0px,rgba(200,134,10,0.03) 1px,transparent 1px,transparent 60px);}
+.wheat-decor{position:absolute;font-size:15rem;opacity:0.04;right:-2rem;top:50%;transform:translateY(-50%);pointer-events:none;user-select:none;}
+.hero-content{position:relative;z-index:2;text-align:center;max-width:900px;padding:2rem;}
+.hero-badge{display:inline-block;padding:6px 20px;border:1px solid rgba(200,134,10,0.5);border-radius:30px;color:var(--wheat);font-size:0.75rem;letter-spacing:3px;text-transform:uppercase;margin-bottom:2rem;}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,7vw,5.5rem);color:var(--white);line-height:1.1;margin-bottom:1rem;font-weight:900;}
+.hero h1 em{color:var(--wheat);font-style:normal;}
+.hero-sub{color:rgba(255,255,255,0.6);font-size:1.1rem;margin-bottom:3rem;max-width:600px;margin-left:auto;margin-right:auto;line-height:1.7;}
+.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+.btn-primary{padding:14px 36px;background:var(--wheat);color:var(--white);border:none;border-radius:4px;font-size:1rem;font-weight:600;cursor:pointer;text-decoration:none;transition:all 0.3s;font-family:'Inter',sans-serif;letter-spacing:0.5px;}
+.btn-primary:hover{background:var(--wheat-dark);transform:translateY(-2px);}
+.btn-outline{padding:14px 36px;background:transparent;color:var(--white);border:1px solid rgba(255,255,255,0.3);border-radius:4px;font-size:1rem;cursor:pointer;text-decoration:none;transition:all 0.3s;font-family:'Inter',sans-serif;}
+.btn-outline:hover{border-color:var(--wheat);color:var(--wheat);}
+
+/* Stats */
+.hero-stats{display:flex;gap:3rem;justify-content:center;margin-top:4rem;padding-top:3rem;border-top:1px solid rgba(255,255,255,0.1);}
+.stat{text-align:center;}
+.stat-num{font-family:'Playfair Display',serif;font-size:2.5rem;color:var(--wheat);font-weight:700;}
+.stat-label{color:rgba(255,255,255,0.5);font-size:0.8rem;letter-spacing:1px;text-transform:uppercase;margin-top:4px;}
+
+/* Sections General */
+section{padding:100px 2rem;}
+.container{max-width:1200px;margin:0 auto;}
+.section-eyebrow{font-size:0.75rem;letter-spacing:3px;text-transform:uppercase;color:var(--wheat);margin-bottom:1rem;font-weight:600;}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;line-height:1.2;margin-bottom:1.5rem;}
+.section-lead{color:var(--gray);font-size:1.1rem;line-height:1.7;max-width:600px;}
+
+/* About */
+.about{background:var(--white);}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+.about-img{position:relative;}
+.about-img img{width:100%;height:450px;object-fit:cover;border-radius:4px;}
+.about-img-accent{position:absolute;bottom:-20px;right:-20px;width:150px;height:150px;border:3px solid var(--wheat);border-radius:4px;z-index:-1;}
+.about-features{margin-top:2.5rem;display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
+.feature-item{display:flex;align-items:flex-start;gap:12px;}
+.feature-icon{width:40px;height:40px;background:var(--wheat-light);border-radius:4px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.2rem;}
+.feature-text h4{font-size:0.9rem;font-weight:600;margin-bottom:4px;}
+.feature-text p{font-size:0.82rem;color:var(--gray);line-height:1.5;}
+
+/* Products System */
+.products{background:var(--cream);}
+.products-tabs{display:flex;gap:0;margin-bottom:3rem;border:1px solid rgba(200,134,10,0.3);border-radius:4px;overflow:hidden;width:fit-content;}
+.tab-btn{padding:12px 28px;background:transparent;border:none;font-size:0.9rem;font-weight:500;cursor:pointer;color:var(--gray);font-family:'Inter',sans-serif;transition:all 0.2s;}
+.tab-btn.active{background:var(--wheat);color:var(--white);}
+.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem;}
+.product-card{background:var(--white);border-radius:4px;overflow:hidden;border:1px solid rgba(200,134,10,0.15);transition:all 0.3s;display:flex;flex-direction:column;justify-content:space-between;}
+.product-card:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(200,134,10,0.15);}
+.product-img{height:220px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--wheat-light),#fff);position:relative;overflow:hidden;}
+.product-img img{width:100%;height:100%;object-fit:cover;}
+.product-brand{position:absolute;top:12px;left:12px;padding:4px 12px;background:var(--wheat);color:var(--white);font-size:0.7rem;font-weight:600;border-radius:2px;letter-spacing:1px;text-transform:uppercase;}
+.product-body{padding:1.25rem;flex-grow:1;display:flex;flex-direction:column;justify-content:space-between;}
+.product-name{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;margin-bottom:6px;}
+.product-desc{font-size:0.85rem;color:var(--gray);margin-bottom:1rem;line-height:1.5;}
+
+/* Weights Button Style */
+.product-weights{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1.25rem;}
+.weight-tag{padding:6px 12px;border:1px solid rgba(200,134,10,0.3);border-radius:4px;font-size:0.75rem;color:var(--dark);font-weight:500;cursor:pointer;transition:all 0.2s;}
+.weight-tag:hover{border-color:var(--wheat);background:var(--cream);}
+.weight-tag.selected{background:var(--wheat);color:var(--white);border-color:var(--wheat);}
+
+/* Card Button */
+.add-to-cart-btn{width:100%;padding:11px;background:var(--dark);color:var(--white);border:none;border-radius:4px;font-size:0.85rem;font-weight:600;cursor:pointer;transition:all 0.2s;display:flex;align-items:center;justify-content:center;gap:8px;}
+.add-to-cart-btn:hover{background:var(--wheat);}
+
+/* Floating Basket */
+.floating-cart{position:fixed;bottom:30px;right:30px;z-index:999;background:var(--white);border-radius:50%;width:60px;height:60px;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(0,0,0,0.2);cursor:pointer;transition:all 0.3s;border:2px solid var(--wheat);}
+.floating-cart:hover{transform:scale(1.05);}
+.cart-badge{position:absolute;top:-5px;right:-5px;background:var(--red);color:var(--white);font-size:0.75rem;font-weight:700;border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;}
+.cart-icon-emoji{font-size:1.6rem;}
+
+/* Cart Side Drawer */
+.cart-modal{position:fixed;top:0;right:-400px;width:400px;height:100vh;background:var(--white);z-index:1000;box-shadow:-10px 0 30px rgba(0,0,0,0.15);transition:all 0.4s ease;padding:2rem;display:flex;flex-direction:column;justify-content:space-between;}
+.cart-modal.open{right:0;}
+.cart-header{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #eee;padding-bottom:1rem;}
+.close-cart{background:transparent;border:none;font-size:1.5rem;cursor:pointer;color:var(--gray);}
+.cart-items-list{flex-grow:1;overflow-y:auto;margin:1.5rem 0;padding-right:5px;}
+.cart-item-row{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid #f5f5f5;}
+.cart-item-info h5{font-size:0.95rem;font-weight:600;margin-bottom:3px;}
+.cart-item-info p{font-size:0.8rem;color:var(--gray);}
+.remove-item-btn{background:transparent;border:none;color:var(--red);cursor:pointer;font-size:0.85rem;font-weight:500;}
+.cart-checkout-actions{display:flex;flex-direction:column;gap:10px;}
+.checkout-btn{width:100%;padding:14px;border:none;border-radius:4px;font-size:0.95rem;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;text-align:center;font-family:'Inter',sans-serif;}
+.checkout-tg{background:#0088cc;color:white;}
+.checkout-tg:hover{background:#0077b3;}
+.checkout-phone{background:var(--green);color:white;}
+.checkout-phone:hover{background:#134717;}
+.cart-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:998;display:none;}
+.cart-overlay.open{display:block;}
+
+/* News */
+.news{background:var(--white);}
+.news-grid{display:grid;grid-template-columns:2fr 1fr;gap:2rem;}
+.news-main{background:var(--cream);border-radius:4px;padding:2.5rem;border-left:4px solid var(--wheat);}
+.news-main .news-date{font-size:0.75rem;color:var(--wheat);letter-spacing:2px;text-transform:uppercase;margin-bottom:1rem;}
+.news-main h3{font-family:'Playfair Display',serif;font-size:1.5rem;margin-bottom:1rem;line-height:1.3;}
+.news-main p{color:var(--gray);line-height:1.7;font-size:0.9rem;}
+.news-side{display:flex;flex-direction:column;gap:1rem;}
+.news-item{padding:1.25rem;border:1px solid rgba(200,134,10,0.15);border-radius:4px;transition:all 0.2s;}
+.news-item:hover{border-color:var(--wheat);background:var(--wheat-light);}
+.news-item .news-date{font-size:0.7rem;color:var(--wheat);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;}
+.news-item h4{font-size:0.9rem;font-weight:600;line-height:1.4;}
+
+/* Contact */
+.contact{background:linear-gradient(135deg,#1A1200,#3D2B00);}
+.contact .section-title{color:var(--white);}
+.contact .section-eyebrow{color:var(--wheat);}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
+.contact-info{display:flex;flex-direction:column;gap:1.5rem;margin-top:2rem;}
+.contact-item{display:flex;align-items:flex-start;gap:1rem;}
+.contact-icon{width:44px;height:44px;background:rgba(200,134,10,0.2);border:1px solid rgba(200,134,10,0.3);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;}
+.contact-item h4{color:rgba(255,255,255,0.5);font-size:0.75rem;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;}
+.contact-item p,.contact-item a{color:var(--white);font-size:0.95rem;text-decoration:none;}
+.contact-item a:hover{color:var(--wheat);}
+.map-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:var(--wheat);color:var(--white);border:none;border-radius:4px;font-size:0.9rem;font-weight:600;cursor:pointer;text-decoration:none;margin-top:1rem;font-family:'Inter',sans-serif;transition:all 0.3s;}
+.map-btn:hover{background:var(--wheat-dark);}
+.factory-img{border-radius:4px;overflow:hidden;}
+
+footer{background:#0D0900;padding:2rem;text-align:center;}
+footer p{color:rgba(255,255,255,0.3);font-size:0.8rem;}
+footer span{color:var(--wheat);}
+
+/* Language Switcher Helper classes */
+.lang-visible { display: none; }
+.lang-visible.active { display: block; }
+span.lang-visible.active { display: inline; }
+
+@media(max-width:768px){
+  .about-grid,.contact-grid,.news-grid{grid-template-columns:1fr;}
+  .hero-stats{gap:1.5rem;}
+  .stat-num{font-size:1.8rem;}
+  .nav-links{display:none;}
+  .about-features{grid-template-columns:1fr;}
+  .cart-modal{width:100%;right:-100%;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="logo-text">
+      Xonqa Don Mahsulotlari
+      <span>Xorazm viloyati</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#about" data-nav="about">Haqimizda</a></li>
+      <li><a href="#products" data-nav="products">Mahsulotlar</a></li>
+      <li><a href="#news" data-nav="news">Yangiliklar</a></li>
+      <li><a href="#contact" data-nav="contact">Aloqa</a></li>
+    </ul>
+    <div class="lang-switcher">
+      <button class="lang-btn active" onclick="setLang('uz')">UZ</button>
+      <button class="lang-btn" onclick="setLang('ru')">RU</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="wheat-decor">🌾</div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="lang-visible uz active">Xorazm Viloyati · Xonqa Tumani</span>
+      <span class="lang-visible ru">Хорезмская Область · Хонкинский Район</span>
+      <span class="lang-visible en">Khorezm Region · Khonqa District</span>
+    </div>
+    <h1>
+      <span class="lang-visible uz active">Xonqa Don<br><em>Mahsulotlari</em></span>
+      <span class="lang-visible ru">Хонка Дон<br><em>Маҳсулотлари</em></span>
+      <span class="lang-visible en">Xonqa Grain<br><em>Products</em></span>
+    </h1>
+    <p class="hero-sub">
+      <span class="lang-visible uz active">O'zbekistonda ishlab chiqarilgan yuqori sifatli un mahsulotlari va chorvachilik korma mahsulotlari</span>
+      <span class="lang-visible ru">Высококачественная мучная продукция и корма для животноводства, произведённые в Узбекистане</span>
+      <span class="lang-visible en">Premium flour products and livestock feed manufactured in Uzbekistan</span>
+    </p>
+    <div class="hero-btns">
+      <a href="#products" class="btn-primary">
+        <span class="lang-visible uz active">Mahsulotlarni ko'rish</span>
+        <span class="lang-visible ru">Смотреть продукцию</span>
+        <span class="lang-visible en">View Products</span>
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">3</div>
+        <div class="stat-label"><span class="lang-visible uz active">Brend</span><span class="lang-visible ru">Бренда</span><span class="lang-visible en">Brands</span></div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">50kg</div>
+        <div class="stat-label"><span class="lang-visible uz active">Max. qop</span><span class="lang-visible ru">Макс. мешок</span><span class="lang-visible en">Max. bag</span></div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">100%</div>
+        <div class="stat-label"><span class="lang-visible uz active">O'zbekiston</span><span class="lang-visible ru">Узбекистан</span><span class="lang-visible en">Uzbekistan</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img">
+        <img src="logo/XONQA.jpg" alt="Xonqa Don" onerror="this.src='shohona.jpg'">
+        <div class="about-img-accent"></div>
+      </div>
+      <div>
+        <div class="section-eyebrow">
+          <span class="lang-visible uz active">Biz haqimizda</span>
+          <span class="lang-visible ru">О нас</span>
+          <span class="lang-visible en">About us</span>
+        </div>
+        <h2 class="section-title">
+          <span class="lang-visible uz active">"Xonqa Don Mahsulotlari" AJ</span>
+          <span class="lang-visible ru">АО "Хонка Дон Маҳсулотлари"</span>
+          <span class="lang-visible en">JSC "Xonqa Don Mahsulotlari"</span>
+        </h2>
+        <p class="section-lead">
+          <span class="lang-visible uz active">Xorazm viloyatining Xonqa tumanida joylashgan zavodimiz yuqori sifatli un mahsulotlari va chorvachilik korma mahsulotlarini ishlab chiqaradi. Mamlakatimiz doni hamisha mo'l, noni butun bo'lsin!</span>
+          <span class="lang-visible ru">Наш завод, расположенный в Хонкинском районе Хорезмской области, производит высококачественную мучную продукцию и корма для животноводства.</span>
+          <span class="lang-visible en">Our factory, located in Khonqa district of Khorezm region, produces high-quality flour products and livestock feed.</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="products" id="products">
+  <div class="container">
+    <div class="section-eyebrow">
+      <span class="lang-visible uz active">Mahsulotlarimiz</span>
+      <span class="lang-visible ru">Наша продукция</span>
+      <span class="lang-visible en">Our Products</span>
+    </div>
+    <h2 class="section-title">
+      <span class="lang-visible uz active">Sifatli mahsulotlar</span>
+      <span class="lang-visible ru">Качественная продукция</span>
+      <span class="lang-visible en">Quality Products</span>
+    </h2>
+    
+    <div class="products-tabs">
+      <button class="tab-btn active" onclick="showTab('flour')">
+        <span class="lang-visible uz active">Un mahsulotlari</span>
+        <span class="lang-visible ru">Мучные изделия</span>
+        <span class="lang-visible en">Flour products</span>
+      </button>
+      <button class="tab-btn" onclick="showTab('feed')">
+        <span class="lang-visible uz active">Kepak va korma</span>
+        <span class="lang-visible ru">Отруби и корма</span>
+        <span class="lang-visible en">Bran & Feed</span>
+      </button>
+    </div>
+
+    <!-- UN MAHSULOTLARI BO'LIMI -->
+    <div id="tab-flour" class="products-grid">
+      <!-- Shohona -->
+      <div class="product-card">
+        <div class="product-img">
+          <img src="mahsulotlar/Un/shohona un.jpg" alt="Shohona un">
+          <div class="product-brand">Shohona</div>
+        </div>
+        <div class="product-body">
+          <div class="product-name">Shohona — Oliy Nav</div>
+          <p class="product-desc">
+            <span class="lang-visible uz active">Qozog'iston bug'doy uni. Vitamin-mineral aralashmasi bilan boyitilgan.</span>
+            <span class="lang-visible ru">Казахстанская пшеничная мука. Обогащена витаминно-минеральной смесью.</span>
+            <span class="lang-visible en">Kazakhstani wheat flour. Enriched with vitamin-mineral mixture.</span>
+          </p>
+          <div class="product-weights">
+            <span class="weight-tag selected" onclick="selectWeight(this, '1 kg')">1 kg</span>
+            <span class="weight-tag" onclick="selectWeight(this, '2 kg')">2 kg</span>
+            <span class="weight-tag" onclick="selectWeight(this, '5 kg')">5 kg</span>
+            <span class="weight-tag" onclick="selectWeight(this, '25 kg')">25 kg</span>
+            <span class="weight-tag" onclick="selectWeight(this, '50 kg')">50 kg</span>
+          </div>
+          <button class="add-to-cart-btn" onclick="addToCart('Shohona (Oliy Nav)', this)">🛒 Savatchaga qo'shish</button>
+        </div>
+      </div>
+
+      <!-- Oynur -->
+      <div class="product-card">
+        <div class="product-img">
+          <img src="mahsulotlar/Un/Oynur un.jpg" alt="Oynur un">
+          <div class="product-brand" style="background:#2E7D32;">Oynur</div>
+        </div>
+        <div class="product-body">
+          <div class="product-name">Oynur — Birinchi Navli</div>
+          <p class="product-desc">
+            <span class="lang-visible uz active">Novvoylik bug'doy uni. Vitamin-mineral aralashmasi bilan boyitilgan.</span>
+            <span class="lang-visible ru">Хлебопекарная пшеничная мука. Обогащена витаминно-минеральной смесью.</span>
+            <span class="lang-visible en">Bread wheat flour. Enriched with vitamin-mineral mixture.</span>
+          </p>
+          <div class="product-weights">
+            <span class="weight-tag selected" onclick="selectWeight(this, '25 kg')">25 kg</span>
+            <span class="weight-tag" onclick="selectWeight(this, '50 kg')">50 kg</span>
+          </div>
+          <button class="add-to-cart-btn" onclick="addToCart('Oynur (1-Navli)', this)">🛒 Savatchaga qo'shish</button>
+        </div>
+      </div>
+
+      <!-- Istiqlol -->
+      <div class="product-card">
+        <div class="product-img">
+          <img src="mahsulotlar/Un/istiqlol un.jpg" alt="Istiqlol un">
+          <div class="product-brand" style="background:#1B5E20;">Istiqlol</div>
+        </div>
+        <div class="product-body">
+          <div class="product-name">Istiqlol — Birinchi Navli</div>
+          <p class="product-desc">
+            <span class="lang-visible uz active">Novvoylik bug'doy uni. Vitamin-mineral aralashmasi bilan boyitilgan.</span>
+            <span class="lang-visible ru">Хлебопекарная пшеничная мука. Обогащена витаминно-минеральной смесью.</span>
+            <span class="lang-visible en">Bread wheat flour. Enriched with vitamin-mineral mixture.</span>
+          </p>
+          <div class="product-weights">
+            <span class="weight-tag selected" onclick="selectWeight(this, '50 kg')">50 kg</span>
+          </div>
+          <button class="add-to-cart-btn" onclick="addToCart('Istiqlol (1-Navli)', this)">🛒 Savatchaga qo'shish</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- KEPAK VA KORMA BO'LIMI -->
+    <div id="tab-feed" class="products-grid" style="display:none;">
+      <!-- Kepak -->
+      <div class="product-card">
+        <div class="product-img">
+          <img src="mahsulotlar/kepak.jpg" alt="Bug'doy kepagi">
+          <div class="product-brand" style="background:#E65100;">Kepak</div>
+        </div>
+        <div class="product-body">
+          <div class="product-name">Bug'doy kepagi</div>
+          <p class="product-desc">
+            <span class="lang-visible uz active">Chorva mollarining barcha turi uchun qimmatli ozuqa.</span>
+            <span class="lang-visible ru">Ценный корм для всех видов скота.</span>
+            <span class="lang-visible en">Valuable feed for all types of livestock.</span>
+          </p>
+          <div class="product-weights">
+            <span class="weight-tag selected" onclick="selectWeight(this, '25 kg')">25 kg</span>
+            <span class="weight-tag" onclick="selectWeight(this, '50 kg')">50 kg</span>
+          </div>
+          <button class="add-to-cart-btn" onclick="addToCart('Bug\'doy kepagi', this)">🛒 Savatchaga qo'shish</button>
+        </div>
+      </div>
+
+      <!-- Korma Qoramol -->
+      <div class="product-card">
+        <div class="product-img">
+          <img src="mahsulotlar/korma.webp  " alt="Qoramol kormasi">
+          <div class="product-brand" style="background:#6A1B9A;">Korma</div>
+        </div>
+        <div class="product-body">
+          <div class="product-name">Qoramol uchun korma</div>
+          <p class="product-desc">
+            <span class="lang-visible uz active">Qoramollar uchun maxsus tayyorlangan aralashma korma.</span>
+            <span class="lang-visible ru">Специально приготовленный комбикорм для КРС.</span>
+            <span class="lang-visible en">Specially prepared mixed feed for cattle.</span>
+          </p>
+          <div class="product-weights">
+            <span class="weight-tag selected" onclick="selectWeight(this, '25 kg')">25 kg</span>
+            <span class="weight-tag" onclick="selectWeight(this, '50 kg')">50 kg</span>
+          </div>
+          <button class="add-to-cart-btn" onclick="addToCart('Qoramol uchun korma', this)">🛒 Savatchaga qo'shish</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FLOATING SAVATCHA TUGMASI -->
+<div class="floating-cart" onclick="toggleCart(true)">
+  <div class="cart-badge" id="cart-count">0</div>
+  <div class="cart-icon-emoji">🛒</div>
+</div>
+
+<!-- SAVATCHA OYNASI (DRAWER) -->
+<div class="cart-overlay" id="cart-overlay" onclick="toggleCart(false)"></div>
+<div class="cart-modal" id="cart-modal">
+  <div class="cart-header">
+    <h3>Savatchangiz</h3>
+    <button class="close-cart" onclick="toggleCart(false)">✕</button>
+  </div>
+  
+  <div class="cart-items-list" id="cart-items-container">
+    <p style="text-align:center; color:var(--gray); margin-top:2rem;">Savatchangiz bo'sh</p>
+  </div>
+
+  <div class="cart-checkout-actions">
+    <!-- ⚠️ TELEGRAM BUYURTMA RAQAMI (+ SHART EMAS, TO'G'RIDAN-TO'G'RI RAQAMNI YOZING) -->
+    <button class="checkout-btn checkout-tg" onclick="checkoutTelegram('998975157676')">✈️ Telegram orqali buyurtma</button>
+    <a href="tel:+998975157676" class="checkout-btn checkout-phone">📞 Telefon orqali bog'lanish</a>
+  </div>
+</div>
+
+<section class="news" id="news">
+  <div class="container">
+    <div class="section-eyebrow"><span class="lang-visible uz active">Yangiliklar</span><span class="lang-visible ru">Новости</span><span class="lang-visible en">News</span></div>
+    <h2 class="section-title" style="margin-bottom:2.5rem;"><span class="lang-visible uz active">So'nggi yangiliklar</span><span class="lang-visible ru">Последние новости</span><span class="lang-visible en">Latest news</span></h2>
+    <div class="news-grid">
+      <div class="news-main">
+        <div class="news-date">2024</div>
+        <h3><span class="lang-visible uz active">Xonqa tumani g'alla topshirish rejasini viloyatda birinchi bo'lib bajardi</span><span class="lang-visible ru">Хонкинский район первым в области выполнил план сдачи зерна</span><span class="lang-visible en">Khonqa district was the first in the region to fulfill the grain delivery plan</span></h3>
+        <p><span class="lang-visible uz active">Tumanninng davlatga don sotish rejasi 8 ming 855 tonnani tashkil etib, tuman g'allakorlari tomonidan viloyatda birinchi bo'lib bajarildi.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-eyebrow"><span class="lang-visible uz active">Aloqa</span><span class="lang-visible ru">Контакты</span><span class="lang-visible en">Contact</span></div>
+    <h2 class="section-title"><span class="lang-visible uz active">Biz bilan bog'laning</span><span class="lang-visible ru">Свяжитесь с нами</span><span class="lang-visible en">Get in touch</span></h2>
+    <div class="contact-grid">
+      <div>
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div>
+              <h4><span class="lang-visible uz active">Manzil</span><span class="lang-visible ru">Адрес</span><span class="lang-visible en">Address</span></h4>
+              <p><span class="lang-visible uz active">Xorazm viloyati, Xonqa tumani, Mulla-yop ko'cha 64-uy</span></p>
+              <a href="https://www.google.com/maps?q=41.473222,60.749694" target="_blank" class="map-btn">🗺️ Xaritada ko'rish</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📞</div>
+            <div>
+              <h4><span class="lang-visible uz active">Telefon</span></h4>
+              <a href="tel:+998975157676">+998 97 515 76 76</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 <span>"Xonqa Don Mahsulotlari" AJ</span> · Xorazm viloyati, O'zbekiston</p>
+</footer>
+
+<script>
+// --- LANGUAGE MANAGEMENT ---
+let currentLang='uz';
+function setLang(lang){
+  currentLang=lang;
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));
+  const activeBtn = document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`);
+  if(activeBtn) activeBtn.classList.add('active');
+  
+  document.querySelectorAll('.lang-visible').forEach(el=>{
+    el.classList.remove('active');
+    if(el.classList.contains(lang)) el.classList.add('active');
+  });
+
+  const navLabels={
+    uz:['Haqimizda','Mahsulotlar','Yangiliklar','Aloqa'],
+    ru:['О нас','Продукция','Новости','Контакты'],
+    en:['About','Products','News','Contact']
+  };
+  document.querySelectorAll('[data-nav]').forEach(el=>{
+    const idx={about:0,products:1,news:2,contact:3};
+    el.textContent=navLabels[lang][idx[el.dataset.nav]];
+  });
+}
+
+// --- TABS VISIBILITY ---
+function showTab(tab){
+  document.getElementById('tab-flour').style.display = tab === 'flour' ? 'grid' : 'none';
+  document.getElementById('tab-feed').style.display = tab === 'feed' ? 'grid' : 'none';
+  document.querySelectorAll('.tab-btn').forEach((b,i)=>b.classList.toggle('active',(tab==='flour'&&i===0)||(tab==='feed'&&i===1)));
+}
+
+// --- ACTIVE WEIGHT SELECTOR ---
+function selectWeight(element, weight) {
+  const parent = element.parentElement;
+  parent.querySelectorAll('.weight-tag').forEach(tag => tag.classList.remove('selected'));
+  element.classList.add('selected');
+}
+
+// --- SHOPPING CART ENGINE ---
+let cart = [];
+
+function toggleCart(show) {
+  document.getElementById('cart-modal').classList.toggle('open', show);
+  document.getElementById('cart-overlay').classList.toggle('open', show);
+}
+
+function addToCart(productName, buttonElement) {
+  const card = buttonElement.closest('.product-card');
+  const selectedWeightElement = card.querySelector('.weight-tag.selected');
+  const weight = selectedWeightElement ? selectedWeightElement.textContent : 'Standart';
+  
+  const existingIndex = cart.findIndex(item => item.name === productName && item.weight === weight);
+  
+  if(existingIndex > -1) {
+    cart[existingIndex].qty += 1;
+  } else {
+    cart.push({ name: productName, weight: weight, qty: 1 });
+  }
+  
+  updateCartUI();
+  
+  buttonElement.textContent = "✅ Qo'shildi!";
+  setTimeout(() => {
+    buttonElement.textContent = "🛒 Savatchaga qo'shish";
+  }, 1000);
+}
+
+function removeFromCart(index) {
+  cart.splice(index, 1);
+  updateCartUI();
+}
+
+function updateCartUI() {
+  const container = document.getElementById('cart-items-container');
+  const countBadge = document.getElementById('cart-count');
+  
+  const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+  countBadge.textContent = totalItems;
+  
+  if(cart.length === 0) {
+    container.innerHTML = `<p style="text-align:center; color:var(--gray); margin-top:2rem;">Savatchangiz bo'sh</p>`;
+    return;
+  }
+  
+  container.innerHTML = '';
+  cart.forEach((item, index) => {
+    const row = document.createElement('div');
+    row.className = 'cart-item-row';
+    row.innerHTML = `
+      <div class="cart-item-info">
+        <h5>${item.name}</h5>
+        <p>Vazni: ${item.weight} | Soni: ${item.qty} qop</p>
+      </div>
+      <button class="remove-item-btn" onclick="removeFromCart(${index})">✕</button>
+    `;
+    container.appendChild(row);
+  });
+}
+
+// --- INTERACTION WITH TELEGRAM ---
+function checkoutTelegram(phoneNumber) {
+  if(cart.length === 0) {
+    alert("Savatchangiz bo'sh!");
+    return;
+  }
+  
+  let text = "🚨 YANGI BUYURTMA (Xonqa Don) 🚨\n\n";
+  cart.forEach((item, index) => {
+    text += `${index + 1}. ${item.name}\n   Vazni: ${item.weight}\n   Soni: ${item.qty} qop\n\n`;
+  });
+  
+  const encodedText = encodeURIComponent(text);
+  const telegramUrl = `https://t.me/+${phoneNumber}?text=${encodedText}`; 
+  window.open(telegramUrl, '_blank');
+}
+
+// Initializing settings
+setLang('uz');
+
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}
+  });
+});
+</script>
+</body>
+</html>
